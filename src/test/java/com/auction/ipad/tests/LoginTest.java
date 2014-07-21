@@ -23,17 +23,16 @@ public class LoginTest extends BaseTest{
 	@DataProvider(name="userdata")
 	public Object[][] getUserData(){
 
-		String usernames = testProps.getProperty("usernames");
-		System.out.println(usernames);
+		String[] usernames = testProps.getProperty("usernames").split(",");
 			
-		String passwords = testProps.getProperty("passwords");
-		System.out.println(passwords);
-		Object[][] allNames = new Object[usernames.split(",").length][usernames.split(",").length];
+		String passwords[] = testProps.getProperty("passwords").split(",");
+		
+		Object[][] allNames = new Object[usernames.length][passwords.length];
 
-		for (int i=0;i<4;i++){
+		for (int i=0;i<usernames.length;i++){
 			String[] names = new String[2];
-			names[0]=usernames.split(",")[0];
-			names[1]=passwords.split(",")[0];
+			names[0]=usernames[0];
+			names[1]=passwords[0];
 			allNames[0]=names;
 		}
 
