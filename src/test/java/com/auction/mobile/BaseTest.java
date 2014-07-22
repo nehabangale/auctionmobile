@@ -42,11 +42,11 @@ public class BaseTest {
 	 */
 	@BeforeMethod
 	public void setupLocal() throws MalformedURLException{
-		File appDir = new File("/Users/obapat/Desktop/THISLIFE");
+		File appDir = new File("/Users/qa/AuctionAppFile");
 		File app = new File(appDir, "Auction.com.app");
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability(CapabilityType.VERSION,testProps.getProperty("Version"));
-		capabilities.setCapability("app", "com.auction.ipad.adhoc");
+		capabilities.setCapability("app", "com.auction.ipad");
 		capabilities.setCapability("platformName", testProps.getProperty("Platform"));
 		capabilities.setCapability("deviceName", testProps.getProperty("Device"));
 		capabilities.setCapability("autoAcceptAlerts", true);
@@ -63,5 +63,15 @@ public class BaseTest {
 	
 	public WebDriver getDriver(){
 		return driver;
+	}
+	
+	public String[] getUsernames()
+	{
+		return testProps.getProperty("usernames").split(",");
+	}
+	
+	public String[] getPasswords()
+	{
+		return testProps.getProperty("passwords").split(",");
 	}
 }

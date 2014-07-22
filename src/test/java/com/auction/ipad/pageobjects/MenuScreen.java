@@ -21,6 +21,26 @@ public class MenuScreen extends BaseObject{
 	public By getPageLoadElement() {
 		return By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[7]");
 	}
+
+	public void enterTextEmail(String username)
+	{
+		steps.enterText(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIATextField[1]"),username);
+	}
 	
+	public void enterTextPassword(String password)
+	{
+		steps.enterText(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[2]/UIASecureTextField[1]"),password);
+		//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[2]/UIASecureTextField[1]
+	}
+	
+	public void touchLogoutButton()
+	{
+		steps.touchVisibleElement(By.name("Log out"));
+	}
+	
+	public void touchLogInButton()
+	{
+		steps.touchVisibleElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIAButton[7]"));
+	}
 	
 }

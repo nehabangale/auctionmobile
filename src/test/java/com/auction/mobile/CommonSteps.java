@@ -27,5 +27,10 @@ public class CommonSteps {
 		}
 		
 	}
+	
+	public void enterText(By locator,String text)
+	{
+		driver.findElement(locator).sendKeys(text);
+	}
 
 }
